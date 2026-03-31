@@ -4,43 +4,45 @@
 
 @layer base {
   :root {
-    --background: 36 33% 97%;
-    --foreground: 24 20% 18%;
+    --background: 220 20% 10%;
+    --foreground: 45 20% 92%;
 
-    --card: 36 30% 95%;
-    --card-foreground: 24 20% 18%;
+    --card: 220 18% 13%;
+    --card-foreground: 45 20% 92%;
 
-    --popover: 36 30% 95%;
-    --popover-foreground: 24 20% 18%;
+    --popover: 220 18% 13%;
+    --popover-foreground: 45 20% 92%;
 
-    --primary: 19 55% 45%;
-    --primary-foreground: 36 33% 97%;
+    --primary: 45 70% 52%;
+    --primary-foreground: 220 20% 10%;
 
-    --secondary: 42 40% 88%;
-    --secondary-foreground: 24 20% 18%;
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 45 20% 92%;
 
-    --muted: 36 20% 90%;
-    --muted-foreground: 24 10% 45%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 45 10% 60%;
 
-    --accent: 42 60% 75%;
-    --accent-foreground: 24 20% 18%;
+    --accent: 220 15% 22%;
+    --accent-foreground: 45 20% 92%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 45 20% 92%;
 
-    --border: 36 20% 85%;
-    --input: 36 20% 85%;
-    --ring: 19 55% 45%;
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 45 70% 52%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Resort custom colors */
-    --resort-terracotta: #c2644a;
-    --resort-gold: #d4a853;
-    --resort-cream: #f7f2ea;
-    --resort-brown: #4a2e1a;
-    --resort-sage: #7a9470;
-    --resort-sand: #e8d9c0;
+    --cadet-navy: #0d1b3e;
+    --cadet-blue: #1a2f6b;
+    --cadet-gold: #c9a227;
+    --cadet-gold-light: #e8c547;
+    --cadet-khaki: #6b7c49;
+    --cadet-khaki-light: #8a9e5e;
+    --cadet-dark: #080f20;
+    --cadet-gray: #8a9bb5;
+    --cadet-light: #eef1f7;
   }
 }
 
@@ -49,84 +51,94 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--cadet-dark);
+    color: var(--cadet-light);
     font-family: "Golos Text", sans-serif;
   }
 
   h1,
   h2,
   h3,
-  h4 {
-    font-family: "Cormorant Garamond", serif;
+  h4,
+  h5 {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Oswald", sans-serif;
   }
-
   .font-body {
     font-family: "Golos Text", sans-serif;
   }
 
-  .text-resort-terracotta {
-    color: var(--resort-terracotta);
+  .text-cadet-gold {
+    color: var(--cadet-gold);
   }
-  .text-resort-gold {
-    color: var(--resort-gold);
+  .text-cadet-gold-light {
+    color: var(--cadet-gold-light);
   }
-  .text-resort-brown {
-    color: var(--resort-brown);
+  .text-cadet-gray {
+    color: var(--cadet-gray);
   }
-  .text-resort-sage {
-    color: var(--resort-sage);
+  .text-cadet-light {
+    color: var(--cadet-light);
   }
-  .bg-resort-terracotta {
-    background-color: var(--resort-terracotta);
-  }
-  .bg-resort-gold {
-    background-color: var(--resort-gold);
-  }
-  .bg-resort-cream {
-    background-color: var(--resort-cream);
-  }
-  .bg-resort-brown {
-    background-color: var(--resort-brown);
-  }
-  .bg-resort-sand {
-    background-color: var(--resort-sand);
-  }
-  .bg-resort-sage {
-    background-color: var(--resort-sage);
-  }
-  .border-resort-terracotta {
-    border-color: var(--resort-terracotta);
-  }
-  .border-resort-gold {
-    border-color: var(--resort-gold);
+  .text-cadet-khaki {
+    color: var(--cadet-khaki-light);
   }
 
-  .animate-fade-up {
-    animation: fadeUp 0.7s ease forwards;
+  .bg-cadet-dark {
+    background-color: var(--cadet-dark);
+  }
+  .bg-cadet-navy {
+    background-color: var(--cadet-navy);
+  }
+  .bg-cadet-blue {
+    background-color: var(--cadet-blue);
+  }
+  .bg-cadet-gold {
+    background-color: var(--cadet-gold);
+  }
+  .bg-cadet-khaki {
+    background-color: var(--cadet-khaki);
   }
 
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease forwards;
+  .border-cadet-gold {
+    border-color: var(--cadet-gold);
+  }
+  .border-cadet-blue {
+    border-color: var(--cadet-blue);
+  }
+
+  .stripe-bg {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(201, 162, 39, 0.04) 8px,
+      rgba(201, 162, 39, 0.04) 16px
+    );
   }
 
   @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(24px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -134,5 +146,21 @@
     to {
       opacity: 1;
     }
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease forwards;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
   }
 }
